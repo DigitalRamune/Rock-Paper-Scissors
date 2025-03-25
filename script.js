@@ -19,7 +19,7 @@ function getHumanChoice() {
     let right;
 
     while (!right) {
-        let humanChoice = prompt("Choose between Rock, Paper or Scissors");
+        let humanChoice = prompt("Choose between rock, paper or scissors.");
         if (humanChoice.toLowerCase() === "rock") {
             anwser = "Rock";
             right = true;
@@ -46,30 +46,30 @@ function getHumanChoice() {
 
 function playRound(x, y) {
     if (x === y) {
-        console.log("The computer choose the same as you so it's a draw");
+        console.log("The computer chooses the same as you, so it's a draw.");
     }
     else if (x === "Rock" && y === "Paper") {
-        console.log("You loose the computer choosed Paper");
+        console.log("You lose the computer chose paper.");
         computerScore += 1;
     }
     else if (x === "Rock" && y === "Scissors") {
-        console.log("You win the computer choosed Scissors");
+        console.log("You win the computer chose scissors.");
         humanScore += 1;
     }
     else if (x === "Scissors" && y === "Rock") {
-        console.log("You loose the computer choosed Rock");
+        console.log("You lose the computer chose rock.");
         computerScore += 1;
     }
     else if (x === "Scissors" && y === "Paper") {
-        console.log("You win the computer choosed Paper");
+        console.log("You win the computer chose paper.");
         humanScore += 1;
     }
     else if (x === "Paper" && y === "Rock") {
-        console.log("You win the computer choosed Rock");
+        console.log("You win the computer chose rock.");
         humanScore += 1;
     }
     else if (x === "Paper" && y === "Scissors") {
-        console.log("You loose the computer choosed Scissors");
+        console.log("You lose the computer chose scissors.");
         computerScore += 1;
     }
 }
