@@ -1,59 +1,108 @@
-
-
-function getComputerChoice()
-{
+function getComputerChoice() {
     let response = Math.floor(Math.random() * 3);
-    console.log(response);
-    if (response === 0)
-    {
+    if (response === 0) {
         response = "Rock";
+        return response;
     }
-    else if (response === 1)
-    {
+    else if (response === 1) {
         response = "Paper";
+        return response;
     }
-    else 
-    {
+    else {
         response = "Scissors";
+        return response;
     }
-    console.log(response);
 }
 
-function getHumanChoice() 
-{
+function getHumanChoice() {
     let anwser;
     let right;
 
-    while (!right) 
-    {
+    while (!right) {
         let humanChoice = prompt("Choose between Rock, Paper or Scissors");
-        if (humanChoice.toLowerCase() === "rock")
-        {
+        if (humanChoice.toLowerCase() === "rock") {
             anwser = "Rock";
             right = true;
             return anwser;
         }
-        else if (humanChoice.toLowerCase() === "paper")
-        {
+        else if (humanChoice.toLowerCase() === "paper") {
             anwser = "Paper";
             right = true;
             return anwser;
         }
-        else if (humanChoice.toLowerCase() === "scissors")
-        {
+        else if (humanChoice.toLowerCase() === "scissors") {
             anwser = "Scissors";
             right = true;
             return anwser;
         }
         else {
             right = false;
-        }    
-        
+        }
+
     }
-    
+
 }
 
-let human = getHumanChoice();
-console.log(human);
 
-// getComputerChoice();
+function playRound(x, y) {
+    if (x === y) {
+        console.log("The computer choose the same as you so it's a draw");
+    }
+    else if (x === "Rock" && y === "Paper") {
+        console.log("You loose the computer choosed Paper");
+        computerScore += 1;
+    }
+    else if (x === "Rock" && y === "Scissors") {
+        console.log("You win the computer choosed Scissors");
+        humanScore += 1;
+    }
+    else if (x === "Scissors" && y === "Rock") {
+        console.log("You loose the computer choosed Rock");
+        computerScore += 1;
+    }
+    else if (x === "Scissors" && y === "Paper") {
+        console.log("You win the computer choosed Paper");
+        humanScore += 1;
+    }
+    else if (x === "Paper" && y === "Rock") {
+        console.log("You win the computer choosed Rock");
+        humanScore += 1;
+    }
+    else if (x === "Paper" && y === "Scissors") {
+        console.log("You loose the computer choosed Scissors");
+        computerScore += 1;
+    }
+}
+
+function playAgain() {
+    let verify = false;
+    while (!verify) {
+        let again = prompt("Do you want to play again ?")
+        if (again.toLowerCase() === "yes" ||again.toLowerCase() === "y"  ) {
+            verify = true;
+            return true;
+        }
+        else if (again.toLowerCase() === "no" || again.toLowerCase() === "n" ) {
+            verify = true;
+            return false;
+        }
+        else {
+            verify = false
+        }
+    }
+}
+
+
+let humanScore = 0;
+let computerScore = 0;
+let playAgainResponse = true;
+while (playAgainResponse) {
+
+    let computerChoice = getComputerChoice();
+    let humanChoice = getHumanChoice();
+    playRound(humanChoice, computerChoice);
+    console.log("You have: " + humanScore +"pts, and the computer has: "+computerScore +"pts.")
+    playAgainResponse = playAgain();
+}
+
+
