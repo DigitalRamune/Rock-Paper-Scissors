@@ -1,6 +1,4 @@
-console.log("hello");
 
-let number;
 
 function getComputerChoice()
 {
@@ -21,4 +19,41 @@ function getComputerChoice()
     console.log(response);
 }
 
-getComputerChoice();
+function getHumanChoice() 
+{
+    let anwser;
+    let right;
+
+    while (!right) 
+    {
+        let humanChoice = prompt("Choose between Rock, Paper or Scissors");
+        if (humanChoice.toLowerCase() === "rock")
+        {
+            anwser = "Rock";
+            right = true;
+            return anwser;
+        }
+        else if (humanChoice.toLowerCase() === "paper")
+        {
+            anwser = "Paper";
+            right = true;
+            return anwser;
+        }
+        else if (humanChoice.toLowerCase() === "scissors")
+        {
+            anwser = "Scissors";
+            right = true;
+            return anwser;
+        }
+        else {
+            right = false;
+        }    
+        
+    }
+    
+}
+
+let human = getHumanChoice();
+console.log(human);
+
+// getComputerChoice();
