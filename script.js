@@ -92,17 +92,34 @@ function playAgain() {
     }
 }
 
-
 let humanScore = 0;
 let computerScore = 0;
 let playAgainResponse = true;
-while (playAgainResponse) {
+// while (playAgainResponse) {
 
-    let computerChoice = getComputerChoice();
-    let humanChoice = getHumanChoice();
-    playRound(humanChoice, computerChoice);
-    console.log("You have: " + humanScore +"pts, and the computer has: "+computerScore +"pts.")
-    playAgainResponse = playAgain();
-}
+//     let computerChoice = getComputerChoice();
+//     let humanChoice = getHumanChoice();
+//     playRound(humanChoice, computerChoice);
+//     console.log("You have: " + humanScore +"pts, and the computer has: "+computerScore +"pts.")
+//     playAgainResponse = playAgain();
+// }
 
-
+const player = document.querySelector(".player");
+console.log(player);
+player.addEventListener("click", (e) => {
+    const choice = e.target;
+    switch (choice.id) {
+        case "rock":
+            console.log("Rock");
+            break;
+        
+        case "paper":
+            console.log("Paper");
+            break;
+        case "scissors":
+            console.log("Scissors");
+            break;
+        default:
+            break;
+    }
+});
