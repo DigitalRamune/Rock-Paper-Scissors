@@ -45,44 +45,47 @@ function getHumanChoice() {
 
 
 function playRound(x, y) {
+    let anwser;
+
     if (x === y) {
-        console.log("The computer chooses the same as you, so it's a draw.");
+        anwser = "The computer chooses the same as you, so it's a draw. ";
     }
     else if (x === "Rock" && y === "Paper") {
-        console.log("You lose the computer chose paper.");
         computerScore += 1;
+        anwser = "You lose the computer chose paper. ";
     }
     else if (x === "Rock" && y === "Scissors") {
-        console.log("You win the computer chose scissors.");
         humanScore += 1;
+        anwser = "You win the computer chose scissors. ";
     }
     else if (x === "Scissors" && y === "Rock") {
-        console.log("You lose the computer chose rock.");
         computerScore += 1;
+        anwser = "You lose the computer chose rock. ";
     }
     else if (x === "Scissors" && y === "Paper") {
-        console.log("You win the computer chose paper.");
         humanScore += 1;
+        anwser = "You win the computer chose paper. ";
     }
     else if (x === "Paper" && y === "Rock") {
-        console.log("You win the computer chose rock.");
         humanScore += 1;
+        anwser = "You win the computer chose rock. ";
     }
     else if (x === "Paper" && y === "Scissors") {
-        console.log("You lose the computer chose scissors.");
         computerScore += 1;
+        anwser = "You lose the computer chose scissors. ";
     }
+    return anwser;
 }
 
 function playAgain() {
     let verify = false;
     while (!verify) {
         let again = prompt("Do you want to play again ?")
-        if (again.toLowerCase() === "yes" ||again.toLowerCase() === "y"  ) {
+        if (again.toLowerCase() === "yes" || again.toLowerCase() === "y") {
             verify = true;
             return true;
         }
-        else if (again.toLowerCase() === "no" || again.toLowerCase() === "n" ) {
+        else if (again.toLowerCase() === "no" || again.toLowerCase() === "n") {
             verify = true;
             return false;
         }
@@ -105,21 +108,41 @@ let playAgainResponse = true;
 // }
 
 const player = document.querySelector(".player");
-console.log(player);
+const computer = document.querySelector(".computer");
+const playerScore = document.querySelector(".playerScore");
+const ai = document.querySelector(".computerScore");
+
 player.addEventListener("click", (e) => {
     const choice = e.target;
+    let playerChoice;
     switch (choice.id) {
         case "rock":
-            console.log("Rock");
+            playerChoice = "Rock";
             break;
-        
+
         case "paper":
-            console.log("Paper");
+            playerChoice = "Paper";
             break;
         case "scissors":
-            console.log("Scissors");
+            playerChoice = "Scissors";
             break;
         default:
             break;
     }
+    computer.textContent = playRound(playerChoice, getComputerChoice());
+    
+    
+    if (humanScore === 5) {
+        computer.textContent += "You won the game.";
+        humanScore = 0;
+        computerScore = 0;
+    }
+    else if (computerScore === 5) {
+        computer.textContent += "Computer won the game.";
+        humanScore = 0;
+        computerScore = 0;
+    }
+    playerScore.textContent = "Your score is : "+humanScore;
+    ai.textContent = "The computer has : "+computerScore;
 });
+

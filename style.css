@@ -3,9 +3,30 @@
     justify-content: center;
     align-items: center;
     height: 600px;
+    gap: 50px;
+}
+
+.playerSection {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
 .player {
     display: flex;
     gap: 15px;
+}
+
+.playerScore {
+    text-align: center;
+}
+
+.computerSection {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.computerScore {
+    text-align: center;
 }
