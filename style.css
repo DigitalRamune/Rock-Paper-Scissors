@@ -30,3 +30,15 @@
 .computerScore {
     text-align: center;
 }
+
+.siteTittle {
+    text-align: center;
+    box-sizing: content-box;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 10px 0px;
+}
+
+header {
+    margin: 0px 200px;
+}
