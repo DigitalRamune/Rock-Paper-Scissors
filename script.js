@@ -1,15 +1,22 @@
+const image = document.querySelector(".gameImage");
+const compImage = document.querySelector(".computerImage");
+
+
 function getComputerChoice() {
     let response = Math.floor(Math.random() * 3);
     if (response === 0) {
         response = "Rock";
+        compImage.innerHTML = '<img src="./img/rock.jpeg" alt="">';
         return response;
     }
     else if (response === 1) {
         response = "Paper";
+        compImage.innerHTML = '<img src="./img/paper.jpeg" alt="">';
         return response;
     }
     else {
         response = "Scissors";
+        compImage.innerHTML = '<img src="./img/scissors.jpeg" alt="">';
         return response;
     }
 }
@@ -118,13 +125,16 @@ player.addEventListener("click", (e) => {
     switch (choice.id) {
         case "rock":
             playerChoice = "Rock";
+            image.innerHTML = '<img src="./img/rock.jpeg" alt="">'
             break;
 
         case "paper":
             playerChoice = "Paper";
+            image.innerHTML = '<img src="./img/paper.jpeg" alt="">'
             break;
         case "scissors":
             playerChoice = "Scissors";
+            image.innerHTML = '<img src="./img/scissors.jpeg" alt="">'
             break;
         default:
             break;
