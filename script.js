@@ -105,14 +105,6 @@ function playAgain() {
 let humanScore = 0;
 let computerScore = 0;
 let playAgainResponse = true;
-// while (playAgainResponse) {
-
-//     let computerChoice = getComputerChoice();
-//     let humanChoice = getHumanChoice();
-//     playRound(humanChoice, computerChoice);
-//     console.log("You have: " + humanScore +"pts, and the computer has: "+computerScore +"pts.")
-//     playAgainResponse = playAgain();
-// }
 
 const player = document.querySelector(".player");
 const computer = document.querySelector(".computer");
